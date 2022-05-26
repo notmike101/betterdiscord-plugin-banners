@@ -1,0 +1,40 @@
+{
+  "name": "betterdiscord-plugin-banners",
+  "version": "1.0.0",
+  "description": "Library to assist in creating banners for BetterDiscord plugins",
+  "keywords": [
+    "betterdiscord"
+  ],
+  "homepage": "https://github.com/notmike101/betterdiscord-plugin-banners",
+  "bugs": "https://github.com/notmike101/betterdiscord-plugin-banners/issues",
+  "license": "LICENSE.txt",
+  "author": "Mike Orozco (https://mikeorozco.dev)",
+  "files": [
+    "dist/index.js",
+    "dist/index.esm.js"
+  ],
+  "repository": "github:notmike101/betterdiscord-plugin-banners",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.esm.js"
+    }
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=14.16"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "@types/bandagedbd__bdapi": "^0.3.4",
+    "@types/node": "^17.0.35",
+    "@types/semver": "^7.3.9",
+    "esbuild": "^0.14.39",
+    "esbuild-plugin-d.ts": "^1.1.0",
+    "semver": "^7.3.7",
+    "typescript": "^4.7.2"
+  }
+}
