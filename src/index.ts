@@ -1,5 +1,3 @@
-export interface BannerInterface {}
-
 export interface BannerOptions {
   acceptCallback?: any;
   dismissCallback?: any;
@@ -15,6 +13,12 @@ export interface BannerOptions {
   fontColor?: string;
 }
 
+export interface BannerInterface {
+  bannerContainer: HTMLDivElement;
+  banners: HTMLDivElement[];
+  createBanner(content: string, options: BannerOptions): number;
+}
+
 export class Banners implements BannerInterface {
   public bannerContainer: HTMLDivElement;
   public banners: HTMLDivElement[];
@@ -25,7 +29,7 @@ export class Banners implements BannerInterface {
     const existingBannerContainer: HTMLDivElement = document.querySelector('#plugin-banner-container');
 
     if (!existingBannerContainer) {
-      const bannerContainer = document.createElement('div');
+      const bannerContainer: HTMLDivElement = document.createElement('div');
       
       this.bannerContainer = bannerContainer;
       this.bannerContainer.style.cssText = `
