@@ -1,32 +1,38 @@
+type RGB = `rgb(${number}, ${number}, ${number})`;
+type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
+type HEX = `#${string}`;
+type Color = RGB | RGBA | HEX;
+
 export interface BannerOptions {
   acceptCallback?: any;
   dismissCallback?: any;
   acceptButtonString?: string;
   dismissButtonString?: string;
-  backgroundColor?: string;
-  acceptButtonBorderColor?: string;
-  dismissButtonBorderColor?: string;
-  acceptButtonBackgroundColor?: string;
-  dismissButtonBackgroundColor?: string;
-  acceptButtonFontColor?: string;
-  dismissButtonFontColor?: string;
-  fontColor?: string;
+  backgroundColor?: Color;
+  acceptButtonBorderColor?: Color;
+  dismissButtonBorderColor?: Color;
+  acceptButtonBackgroundColor?: Color;
+  dismissButtonBackgroundColor?: Color;
+  acceptButtonFontColor?: Color;
+  dismissButtonFontColor?: Color;
+  fontColor?: Color;
 }
 
 export interface BannerInterface {
   bannerContainer: HTMLDivElement;
   banners: HTMLDivElement[];
   createBanner(content: string, options: BannerOptions): number;
+  dismissBanner(bannerId: number): void;
 }
 
 export class Banners implements BannerInterface {
   public bannerContainer: HTMLDivElement;
   public banners: HTMLDivElement[];
 
-  constructor() {
+  constructor(bannerContainerId: string = 'plugin-banner-container') {
     this.banners = [];
 
-    const existingBannerContainer: HTMLDivElement = document.querySelector('#plugin-banner-container');
+    const existingBannerContainer: HTMLDivElement = document.querySelector('#' + bannerContainerId);
 
     if (!existingBannerContainer) {
       const bannerContainer: HTMLDivElement = document.createElement('div');
@@ -40,7 +46,7 @@ export class Banners implements BannerInterface {
           align-items: center;
           justify-content: center;
         `;
-      this.bannerContainer.id = 'plugin-banner-container';
+      this.bannerContainer.id = bannerContainerId;
 
       document.querySelector('#app-mount > div[class^="app"] > div[class^="app"]').prepend(this.bannerContainer);
     } else {
@@ -113,7 +119,9 @@ export class Banners implements BannerInterface {
     return bannerIndex;
   }
 
-  private dismissBanner(bannerIndex): void {
-    this.banners[bannerIndex].remove();
+  public dismissBanner(bannerIndex): void {
+    if (this.banners[bannerIndex]) {
+      this.banners[bannerIndex].remove();
+    }
   }
 }
