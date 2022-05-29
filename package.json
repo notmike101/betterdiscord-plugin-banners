@@ -1,6 +1,6 @@
 {
   "name": "betterdiscord-plugin-banners",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Library to assist in creating banners for BetterDiscord plugins",
   "keywords": [
     "betterdiscord"
