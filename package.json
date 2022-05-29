@@ -37,6 +37,7 @@
     "esbuild": "^0.14.39",
     "esbuild-plugin-d.ts": "^1.1.0",
     "semver": "^7.3.7",
+    "typedoc": "^0.22.15",
     "typescript": "^4.7.2"
   }
 }
