@@ -10,9 +10,9 @@
   "license": "LICENSE.txt",
   "author": "Mike Orozco (https://mikeorozco.dev)",
   "files": [
-    "dist/index.js",
-    "dist/index.esm.js"
+    "dist/"
   ],
+  "typings": "dist/index.d.ts",
   "repository": "github:notmike101/betterdiscord-plugin-banners",
   "main": "dist/index.js",
   "exports": {
@@ -26,7 +26,9 @@
     "node": ">=14.16"
   },
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "generate-docs": "typedoc",
+    "preview-docs": "npx http-server ./docs"
   },
   "devDependencies": {
     "@types/bandagedbd__bdapi": "^0.3.4",
