@@ -1,5 +1,11 @@
 # BetterDiscord Plugin Banners Library
 
+# NOTICE
+
+This library is deprecated in favor of [betterdiscord-plugin-libs](https://www.npmjs.com/package/betterdiscord-plugin-libs).
+
+---
+
 > Library to assist in displaying a top banner bar for BetterDiscord plugins.
 
 [![NPM](https://nodei.co/npm/betterdiscord-plugin-banners.png)](https://nodei.co/npm/betterdiscord-plugin-banners/)
